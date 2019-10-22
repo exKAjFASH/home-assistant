@@ -109,7 +109,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
         return slots[f"slot_{slot}"]
 
     if switch_type in RM_TYPES:
-        broadlink_device = broadlink.rm((ip_addr, 80), mac_addr, None)
+        broadlink_device = rm((ip_addr, 80), mac_addr, None)
         hass.add_job(async_setup_service, hass, ip_addr, broadlink_device)
 
         switches = []
@@ -125,14 +125,14 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
                 )
             )
     elif switch_type in SP1_TYPES:
-        broadlink_device = broadlink.sp1((ip_addr, 80), mac_addr, None)
+        broadlink_device = sp1((ip_addr, 80), mac_addr, None)
         switches = [BroadlinkSP1Switch(friendly_name, broadlink_device, retry_times)]
     elif switch_type in SP2_TYPES:
-        broadlink_device = broadlink.sp2((ip_addr, 80), mac_addr, None)
+        broadlink_device = sp2((ip_addr, 80), mac_addr, None)
         switches = [BroadlinkSP2Switch(friendly_name, broadlink_device, retry_times)]
     elif switch_type in MP1_TYPES:
         switches = []
-        broadlink_device = broadlink.mp1((ip_addr, 80), mac_addr, None)
+        broadlink_device = mp1((ip_addr, 80), mac_addr, None)
         parent_device = BroadlinkMP1Switch(broadlink_device, retry_times)
         for i in range(1, 5):
             slot = BroadlinkMP1Slot(
