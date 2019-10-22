@@ -1,6 +1,6 @@
 {
-  "domain": "broadlink",
-  "name": "Broadlink",
+  "domain": "broadlink_rpi",
+  "name": "Broadlink_rpi",
   "documentation": "https://www.home-assistant.io/integrations/broadlink",
   "requirements": [
     "broadlink==0.12.0"
