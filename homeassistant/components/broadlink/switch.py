@@ -4,7 +4,7 @@ from datetime import timedelta
 import logging
 import socket
 
-import broadlink
+from .broadlink_rpi_mod import rm,sp1,sp2,mp1
 
 import voluptuous as vol
 
